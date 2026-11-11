@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit III. Hobbies and abilities · M06 S3</title>
+  <meta name="description" content="Guía interactiva para las Actividades integradoras 5 y 6 del Módulo 6, semana 3: vocabulario, práctica, ejercicios de voz y ayuda para escribir tus respuestas.">
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="step-kicker">Módulo 6 · Semana 3</div>
+      <h1>Unit III. Hobbies and abilities</h1>
+      <p>Una guía paso a paso para preparar y contestar tus Actividades integradoras 5 y 6. Aprende el tema, practica con ejercicios, ensaya tu pronunciación con el micrófono y arma tus respuestas.</p>
+    </header>
+
+    <div class="acts">
+      <a class="card act" href="actividad-5.html">
+        <div class="ban" aria-hidden="true">🎸🍳⚽</div>
+        <div class="body">
+          <div class="step-kicker">Actividad integradora 5</div>
+          <h2>About me</h2>
+          <p>Habla de tus habilidades y gustos con <span class="en">can, can't, like, dislike, hate</span> y <span class="en">love</span>.</p>
+          <p class="small muted" id="prog-ai5"></p>
+          <span class="btn primary">Abrir Actividad 5 →</span>
+        </div>
+      </a>
+      <a class="card act" href="actividad-6.html">
+        <div class="ban alt" aria-hidden="true">⏰🥣🌙</div>
+        <div class="body">
+          <div class="step-kicker">Actividad integradora 6</div>
+          <h2>Finding a roommate</h2>
+          <p>Pregunta y cuenta la rutina de otra persona (<span class="en">he / she</span>) y describe la tuya con adverbios de tiempo y frecuencia.</p>
+          <p class="small muted" id="prog-ai6"></p>
+          <span class="btn primary">Abrir Actividad 6 →</span>
+        </div>
+      </a>
+    </div>
+
+    <h2>¿Cómo se usa?</h2>
+    <ol class="how">
+      <li><b>Aprende.</b> Cada actividad empieza con el objetivo, el vocabulario y la gramática que necesitas.</li>
+      <li><b>Practica.</b> Resuelve ejercicios cortos con retroalimentación inmediata.</li>
+      <li><b>Habla.</b> Escucha, repite y deja que el reconocimiento de voz te diga cuánto se entendió.</li>
+      <li><b>Escribe y graba.</b> Contesta tu actividad con pistas, graba tu audio y copia todo a tu Word.</li>
+    </ol>
+
+    <div class="card">
+      <h3>Antes de empezar</h3>
+      <ul class="clean">
+        <li>Usa <b>Google Chrome</b> o <b>Microsoft Edge</b> para que funcionen el micrófono y el reconocimiento de voz. Cuando el navegador lo pida, elige <b>Permitir</b>.</li>
+        <li>Tu avance se guarda solo en este dispositivo y navegador. No se envía a ningún lado.</li>
+        <li><b>Este sitio es para practicar y preparar tus respuestas; no reemplaza el archivo oficial.</b> Descarga el formato de cada actividad desde la plataforma, copia ahí tus respuestas y envía <b>ese archivo</b> para su revisión.</li>
+      </ul>
+      <p class="noprint"><button type="button" id="reset">Borrar mi avance en este dispositivo</button></p>
+    </div>
+
+    <footer class="site">Material de apoyo para las Actividades integradoras 5 y 6 · Módulo 6, semana 3.</footer>
+  </div>
+  <script>
+    (function () {
+      var IDS = ["ai5", "ai6"];
+      IDS.forEach(function (id) {
+        try {
+          var s = JSON.parse(localStorage.getItem("m06s2:" + id) || "null");
+          if (s && s.seen && Object.keys(s.seen).length) document.getElementById("prog-" + id).textContent = "Ya empezaste: vas en el paso " + ((s.step || 0) + 1) + ".";
+        } catch (e) {}
+      });
+      document.getElementById("reset").addEventListener("click", function () {
+        if (!confirm("¿Borrar todas tus respuestas y tu avance de las dos actividades en este dispositivo? No se puede deshacer.")) return;
+        try { IDS.forEach(function (id) { localStorage.removeItem("m06s2:" + id); }); } catch (e) {}
+        location.reload();
+      });
+    })();
+  </script>
+</body>
+</html>
